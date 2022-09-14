@@ -2,14 +2,12 @@ const auth = require("json-server-auth");
 const jsonServer = require("json-server");
 
 const server = jsonServer.create();
-const router = jsonServer.router("./db.json");
+const router = jsonServer.router("db.json");
 const middlewares = jsonServer.defaults();
 const port = process.env.PORT || 9000;
 
 // Bind the router db to the app
 server.db = router.db;
-
-// json-server --watch --delay 500 db.json --no-cors true --port 9000
 
 server.use(middlewares);
 
